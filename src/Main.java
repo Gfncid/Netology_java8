@@ -1,9 +1,17 @@
 public class Main {
     public static void main(String[] args) {
-        double rate = 9.99;
-        int term = 12;
-        int credit = 1_000_000;
-        int payment = (int) (credit * (rate + (rate / Math.pow((1 + rate), term) - 1)));
-        System.out.println(payment);
+        CreditPaymentService service = new CreditPaymentService();
+
+        int payment1 = service.calculate(1_000_000, 12);
+        System.out.printf("Ваш ежемесячный платёж составит:");
+        System.out.println(payment1);
+
+        int payment2 = service.calculate(1_000_000, 24);
+        System.out.printf("Ваш ежемесячный платёж составит:");
+        System.out.println(payment2);
+
+        int payment3 = service.calculate(1_000_000, 36);
+        System.out.printf("Ваш ежемесячный платёж составит:");
+        System.out.println(payment3);
     }
 }
